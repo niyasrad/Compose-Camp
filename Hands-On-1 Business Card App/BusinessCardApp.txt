@@ -140,7 +140,7 @@ fun ContactDetails(){
 /* Segment 4 - Position Contact Details in the proper position */
 
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxHeight()
             .padding(bottom = 20.dp),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
