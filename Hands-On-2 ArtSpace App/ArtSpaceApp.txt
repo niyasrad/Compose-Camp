@@ -1,0 +1,184 @@
+/* Starter Code - Art Space App */
+
+----------------------------------------------------------------------------------------------
+
+/* Segment #fun 2 - Functions that change image and text resources */
+
+@Composable
+fun ArtSpace(){
+    /* Segment #fun 1 - States & Recomposition */
+    
+    Column(
+        /* Segment 1 - Plan to place composables */
+    ) {
+        Surface(
+            /* Segment 4 - Border, weight and Elevation */
+        ){
+            /* Segment #fun 3 - Painter Resource changes dynamically */
+        }
+        Column(
+            /* Segment 5 - Weight & Specify Alignment */
+        ) {
+            /* Segment #fun 4 - Title text that changes dynamically */
+            /* Segment #fun 5 - Content description that changes dynamically */
+        }
+        Row(
+            /* Segment 6 - Center buttons */
+        ) {
+            Button(
+                /* Segment #fun 6 - Your STATE changes here <Previous> button */
+            ) {
+                /* Segment 2 - <Previous> button */
+            }
+            Button(
+                /* Segment #fun 7 - Your STATE changes here <Next> button */
+            ) {
+                /* Segment 3 - <Next> button */
+            }
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------------
+
+/* Segment 1 - Plan to place composables */
+
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+
+
+/* Segment 2 - <Previous> button */
+
+                Text(text = "Previous", modifier = Modifier.width(100.dp), textAlign = TextAlign.Center)
+
+
+/* Segment 3 - <Next> button */
+
+                Text(text = "Next", modifier = Modifier.width(100.dp), textAlign = TextAlign.Center)
+
+
+----------------------------------------------------------------------------------------------
+
+
+/* Segment #fun 1 - States & Recomposition */
+
+    var artworkNumber by remember { mutableStateOf(1) }
+    fun limitter(i: Int){
+        var number = artworkNumber + i
+        if (number == 0) number = 3
+        if (number > 3) number = 1
+        artworkNumber = number
+    }
+
+
+/* Segment #fun 2 - Functions that change image and text resources */
+
+fun changeArtwork(number: Int): Int{
+    return when(number){
+        1-> R.drawable.pic_1
+        2-> R.drawable.pic_2
+        3-> R.drawable.pic_3
+        else -> R.drawable.pic_1
+    }
+}
+
+fun changeTitle(number: Int): Int {
+    return when(number){
+        1-> R.string.pic_1_title
+        2-> R.string.pic_2_title
+        3-> R.string.pic_3_title
+        else -> R.string.pic_1_title
+    }
+}
+
+fun changeContent(number: Int): Int {
+    return when(number){
+        1-> R.string.pic_1_desc
+        2-> R.string.pic_2_desc
+        3-> R.string.pic_3_desc
+        else -> R.string.pic_1_desc
+    }
+}
+
+
+/* Segment #fun 3 - Painter Resource changes dynamically */
+
+            Image(
+                painter = painterResource(changeArtwork(artworkNumber)),
+                contentDescription = null,
+                modifier = Modifier
+                    .padding(25.dp),
+                contentScale = ContentScale.Crop
+            )
+
+
+/* Segment #fun 4 - Title text that changes dynamically */
+
+            Text(
+                text = stringResource(id = changeTitle(artworkNumber)),
+                modifier = Modifier.fillMaxWidth(),
+                fontWeight = FontWeight.Bold,
+                fontSize = 40.sp,
+                textAlign = TextAlign.Center
+            )
+
+
+/* Segment #fun 5 - Content description that changes dynamically */
+
+            Text(
+                text = stringResource(id = changeContent(artworkNumber)),
+                modifier = Modifier.fillMaxWidth(),
+                fontSize = 20.sp, textAlign = TextAlign.Center
+            )
+
+
+
+/* Segment #fun 6 - Your STATE changes here <Previous> button */
+
+                onClick = { limitter(-1) }
+
+
+/* Segment #fun 7 - Your STATE changes here <Next> button */
+
+                onClick = { limitter(1) }
+
+
+----------------------------------------------------------------------------------------------
+
+
+/* Segment 4 - Border, weight and Elevation */
+
+            modifier = Modifier
+                .border(BorderStroke(width = 4.dp, color = Color.Gray))
+                .weight(2f),
+            elevation = 10.dp
+
+
+/* Segment 5 - Weight & Specify Alignment */
+
+modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .padding(top = 20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+
+
+/* Segment 6 - Center buttons */
+
+modifier = Modifier
+                .fillMaxWidth()
+                .weight(.5f),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.Top
+
+
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
