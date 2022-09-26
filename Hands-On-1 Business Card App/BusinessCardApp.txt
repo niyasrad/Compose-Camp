@@ -1,0 +1,149 @@
+Business Card App: /*  */
+
+----------------------------------------------------------------------------------------------
+
+/* Starter Code for Name Header */
+
+@Composable
+fun NameHeader(){
+    Column(
+        modifier = Modifier
+            .background(color = Color(0xff003a4a))
+            .fillMaxSize(),
+        /* Segment 4 - Arrangement & Alignment */
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.android_logo), contentDescription = null,
+            /* Segment 1 - Image height */
+        )
+        Text(
+            text = "Participant",
+            /* Segment 2 - Font Styling */
+        )
+        Text(
+            text = "Jetpack Compose Practitioner",
+            /* Segment 3 - Yet another Font Styling */
+        )
+    }
+}
+
+
+/* Segment 1 - Image height */
+
+            modifier = Modifier.height(100.dp)
+
+
+/* Segment 2 - Font Styling */
+
+            fontSize = 30.sp,
+            color = Color.White
+
+
+/* Segment 3 - Yet another Font Styling */
+
+            color = Color(0xFF3ddc84),
+            fontWeight = FontWeight.Bold
+
+
+/* Segment 4 - Arrangement & Alignment */
+
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+
+----------------------------------------------------------------------------------------------
+
+/* Starter Code for Contact Card */
+
+@Composable
+fun ContactCard(content: String, icon: Int){
+    Row(
+        /* Segment 5 - Row modifier & Cross Axis Alignment (Vertical for ROW) */
+    ) {
+        Icon(
+            /* Segment 1 - Icon image */
+            /* Segment 3 - Icon Styles */
+        )
+        Text(
+            /* Segment 2 - Value for text */
+            /* Segment 4 - Text padding  */
+            color = Color.White
+        )
+    }
+}
+
+
+/* Segment 1 - Icon image */
+
+            painter = painterResource(id = icon),
+            contentDescription = null,
+
+
+/* Segment 2 - Value for text */
+
+            text = content,
+
+
+/* Segment 3 - Icon Styles */
+
+            tint = Color(0xFF3ddc84),
+
+
+/* Segment 4 - Text padding  */
+
+            modifier = Modifier
+                .padding(start = 30.dp),
+
+
+/* Segment 5 - Row modifier & Cross Axis Alignment (Vertical for ROW) */
+
+        modifier = Modifier
+            .fillMaxWidth(.6F),
+        verticalAlignment = Alignment.CenterVertically
+
+----------------------------------------------------------------------------------------------
+
+/* Starter Code for Contact Details */
+
+@Composable
+fun ContactDetails(){
+    Column(
+        /* Segment 4 - Position Contact Details in the proper position */
+    ) {
+        /* Segment 1 - Phone */
+
+        /* Segment 2 - Social Media */
+
+        /* Segment 3 - Mail */
+    }
+}
+
+/* For icons go to Resource manager -> + icon -> Vector Asset -> click on android clip art */
+/* Segment 1 - Phone */
+
+        Divider(color = Color(0xFF3ddc84), thickness = 1.dp, modifier = Modifier.padding(bottom = 5.dp, top = 5.dp))
+        ContactCard("+91 9877 78779", R.drawable.ic_baseline_call_24)
+
+
+/* Segment 2 - Social Media */
+
+        Divider(color = Color(0xFF3ddc84), thickness = 1.dp, modifier = Modifier.padding(bottom = 5.dp, top = 5.dp))
+        ContactCard("@instargam_id", R.drawable.ic_baseline_share_24)
+
+/* Segment 3 - Mail */
+
+        Divider(color = Color(0xFF3ddc84), thickness = 1.dp, modifier = Modifier.padding(bottom = 5.dp, top = 5.dp))
+        ContactCard("compose.camp.@svce.ac.in", R.drawable.ic_baseline_email_24)
+
+        Divider(color = Color(0xFF3ddc84), thickness = 1.dp, modifier = Modifier.padding(bottom = 5.dp, top = 5.dp))
+
+
+/* Segment 4 - Position Contact Details in the proper position */
+
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 20.dp),
+        verticalArrangement = Arrangement.Bottom,
+        horizontalAlignment = Alignment.CenterHorizontally
+
+
+-----------------------------------------------------------------------------------------------
