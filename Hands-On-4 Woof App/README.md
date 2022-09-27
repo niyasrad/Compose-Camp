@@ -31,3 +31,5 @@ Getting Started
 1. Download the project
 2. Open the project in Android Studio
 3. Run the project
+
+Code is taken from: https://github.com/google-developer-training/basic-android-kotlin-compose-training-woof
